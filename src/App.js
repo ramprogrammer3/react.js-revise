@@ -1,27 +1,23 @@
-import React from 'react'
+import React from "react";
+import Home from "./Home";
 
 class App extends React.Component{
- state = {
-  a : 10,
-  b : 20
- }
-
- changestate = () =>{
-  this.setState((prevState)=>{
-    return {a : prevState.a + 1}
-  });
- }
- 
+  state = {
+    a : 1
+  }
+  changeState = () =>{
+    this.setState({a : 2})
+  } 
   render(){
+    console.log("render function is called ");
     return(
       <>
-        <h1>App class based component </h1>
-        <p> a = {this.state.a} </p> 
-        <button onClick={this.changestate}>change state</button>
-        
+        <h1>App component </h1>
+        <button onClick={this.changeState}>change state</button>
+        <Home a = {this.state.a} />
       </>
     )
   }
 }
 
-export default App
+export default App;
