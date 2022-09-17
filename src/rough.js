@@ -1,359 +1,442 @@
+console.log("_______________________________________________________________");
 
+class App extends React.Component{
+    render(){
+      return(
+        <>
+          <h1>App class based component </h1>
+        </>
+      )
+    }
+  }
 
-// console.log("_________________________________________________________________________________");
+console.log("_______________________________________________________________");
 
-// const initState = {
-//     users : []
-// }
+class App extends React.Component{
 
-// const userReducer = (state = initState, action) =>{
-//     switch(action.type){
-//         default:
-//             return state;
-//     }
-// }
-
-// console.log("_________________________________________________________________________________");
-
-// import { createStore } from "redux";
-// import userReducer from "./reducers/userReducer";
-
-// const store = createStore(userReducer);
-
-
-// export default store;
-
-// const initState = {
-//     users : []
-// }
-
-// const userReducer = (state = initState, action) =>{
-//     switch(action.type){
-//         default:
-//             return state;
-//     }
-// }
-
-// export default userReducer;
-
-// import { Provider } from "react-redux"
-// import store from "./store"
-// const App = () => {
-//   return (
-//      <Provider store={store}>
-//        <>
-//         <h1>hello react </h1>
-//        </>
-//      </Provider>
-//   ) 
-// }
-
-// console.log("_________________________________________________________________________________");
-
-
-// const initState = {
-//     users : [
-//         {
-//             id : 1, name : "ram kumar ", address  : "Noida "
-//         }
-//     ]
-// }
-// const userReducer = (state = initState, action) =>{
-//     switch(action.type){
-//         default:
-//             return state;
-//     }
-// }
-
-// import React from 'react'
-// import {useSelector} from 'react-redux'
-// const User = () => {
-//     const state = useSelector((state)=> state.users)
-//     console.log(state)
-//   return (
-//     <>
-//         <h1>user page </h1>
-//     </>
-//   )
-// }
-
-// import { Provider } from "react-redux"
-// import store from "./store"
-// import User from "./User"
-// const App = () => {
-//   return (
-//      <Provider store={store}>
-//         <User />
-//      </Provider>
-//   ) 
-// }
-
-// console.log("_________________________________________________________________________________");
-
-// import React from 'react'
-// import { useState } from 'react'
-
-// const Form = () => {
-//     const [name,setName] = useState("");
-//     const [address , setAddress] = useState("");
-
-//     const formSubmit = (e) =>{
-//         e.preventDefault();
-//         console.log(name, address);
-//     }
-//   return (
-//     <div>
-//         <form action="" onSubmit={formSubmit}>
-//             <div className="group">
-//                 <input type="text" className='control' placeholder='Enter name ' value={name} onChange = {(e)=> setName(e.target.value)} />
-//             </div>
-
-//             <div className="group">
-//                 <input type="text" className='control' placeholder='Enter address ' value={address} onChange = {(e)=> setAddress(e.target.value)} />
-//             </div>
-//             <div className="group">
-//                 <input type="submit" className='btn' value= "Add User" />
-//             </div>
-//         </form>
-//     </div>
-//   )
-// }
-
-// console.log("_________________________________________________________________________________");
-
-// import React from 'react'
-// import { useState } from 'react'
-// import { useDispatch } from 'react-redux';
-// import { v4 as uuidv4 } from 'uuid';
-
-// const Form = () => {
-//     const [name,setName] = useState("");
-//     const [address , setAddress] = useState("");
-//     const dispatch = useDispatch();
-
-//     const formSubmit = (e) =>{
-//         e.preventDefault();
-//         console.log(name, address);
-//         dispatch({type : "ADD_USER", payload : {id :uuidv4() ,name, address}});
-//         setName("");
-//         setAddress("");
-//     }
-//   return (
-//     <div>
-//         <form action="" onSubmit={formSubmit}>
-//             <div className="group">
-//                 <input type="text" className='control' placeholder='Enter name ' value={name} onChange = {(e)=> setName(e.target.value)} />
-//             </div>
-
-//             <div className="group">
-//                 <input type="text" className='control' placeholder='Enter address ' value={address} onChange = {(e)=> setAddress(e.target.value)} />
-//             </div>
-//             <div className="group">
-//                 <input type="submit" className='btn' value= "Add User" />
-//             </div>
-//         </form>
-//     </div>
-//   )
-// }
-
-// console.log("_________________________________________________________________________________");
-
-// import React from 'react'
-// import {useDispatch, useSelector} from 'react-redux'
-// const User = () => {
-//     // const state = useSelector((state)=> state.users)
-//     const users = useSelector((state)=> state.users);
-//     const dispatch = useDispatch();
-//     console.log(users)
-//   return (
-//     <>
-//         <div >
-//             {
-//                 users ? users.map((item,i)=>{
-//                     return <div className="row" key={item.id}>
-//                         <div className='name'> {item.name} </div>
-//                         <div className='address'> {item.address} </div>
-//                         <div className='user-btn'>
-//                         <button className='btn btn-danger' onClick={()=>dispatch({type : "DELETE_USER", id : item.id})}>Delete</button>
-//                         </div>
-//                     </div>
-//                 }) : ""
-//             }
-//         </div>
-//     </>
-//   )
-// }
-
-
-// const initState = {
-//     users : [
-//         {
-//             id : 1, name : "ram kumar ", address  : "Noida "
-//         }
-//     ]
-// }
-// const userReducer = (state = initState, action) =>{
-//     switch(action.type){
-//         case 'ADD_USER':
-//             return {users : [action.payload ,...state.users]};
-//         case 'DELETE_USER':
-//             const newUser = state.users.filter(user => user.id !== action.id);
-//             return {users : newUser}    
-//         default:
-//             return state;
-//     }
-// }
-// console.log("_________________________________________________________________________________");
-
-
-// const initState = {
-//     allUsers : []
-// }
-
-// const apiUserReducer = (state = initState, action)=>{ 
-// switch(action.type){
-//     default:
-//         return state;
-// }
-
-        
-// }
-
-// import { createStore,combineReducers } from "redux";
-// import userReducer from "./reducers/userReducer";
-// import apiUserReducer from "./reducers/apiUserReducer";
-// const rootReducer = combineReducers({
-//     users : userReducer,
-//     api : apiUserReducer
-// })
-
-// const store = createStore(rootReducer);
-
-
-// export default store;
-
-// console.log("_________________________________________________________________________________");
-
-// import axios from "axios"
-// const fetchUsers = () =>{
-//     return async(dispatch) =>{
-//         try{
-//             const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-//             console.log(res.data);
-//         }catch(err){
-//             console.log(err);
-//         }
-//     }
-// }
-
-
-// import React from 'react'
-// import { useEffect } from 'react';
-// import {useDispatch, useSelector} from 'react-redux';
-// import fetchUsers from './store/aciton/userAction';
-// const User = () => {
-//     // const state = useSelector((state)=> state.users)
-//     const {users} = useSelector((state)=> state.users);
-//     const dispatch = useDispatch();
-
-//     useEffect(()=>{
-//         dispatch(fetchUsers())
-//     },[]);
+    a = 10;
     
-//   return (
-//     <>
-//         <div >
-//             {
-//                 users ? users.map((item,i)=>{
-//                     return <div className="row" key={item.id}>
-//                         <div className='name'> {item.name} </div>
-//                         <div className='address'> {item.address} </div>
-//                         <div className='user-btn'>
-//                         <button className='btn btn-danger' onClick={()=>dispatch({type : "DELETE_USER", id : item.id})}>Delete</button>
-//                         </div>
-//                     </div>
-//                 }) : ""
-//             }
-//         </div>
-//     </>
-//   )
-// }
+    render(){
+      return(
+        <>
+          <h1>App class based component </h1>
+          <p>the value of a is {this.a} </p>
+        </>
+      )
+    }
+  }
 
-// import { createStore,combineReducers ,applyMiddleware} from "redux";
-// import userReducer from "./reducers/userReducer";
-// import  ThunkMiddleware  from "redux-thunk";
-// import apiUserReducer from "./reducers/apiUserReducer";
-// const rootReducer = combineReducers({
-//     users : userReducer,
-//     api : apiUserReducer
-// })
+console.log("_______________________________________________________________");
 
-// const store = createStore(rootReducer,applyMiddleware(ThunkMiddleware));
+class App extends React.Component{
+    render(){
+      let b = 20;
+      return(
+        <>
+          <h1>App class based component </h1>
+          <p>the value of a is {b} </p>
+        </>
+      )
+    }
+  }
 
-// console.log("_________________________________________________________________________________");
+console.log("_______________________________________________________________");
+
+class App extends React.Component{
+    printA(){
+      console.log("Hello world")
+    }
+    render(){
+      return(
+        <>
+          <h1>App class based component </h1>
+           <button onClick={this.printA}> print a </button>
+        </>
+      )
+    }
+  }
+
+console.log("_______________________________________________________________");
+
+class App extends React.Component{
+    a = "ram";
+    printA(){
+      console.log(`The value of a is ${this.a}`)
+    }
+    render(){
+      return(
+        <>
+          <h1>App class based component </h1>
+           <button onClick={()=>this.printA()}> print a </button>
+        </>
+      )
+    }
+  }
+
+console.log("_______________________________________________________________");
+
+class App extends React.Component{
+    a = "ram";
+    printA=()=>{
+      console.log(`The value of a is ${this.a}`)
+    }
+    render(){
+      return(
+        <>
+          <h1>App class based component </h1>
+           <button onClick={this.printA}> print a </button>
+        </>
+      )
+    }
+  }
+
+console.log("_______________________________________________________________");
+
+class App extends React.Component{
+  
+    a = "ram";
+    constructor(){
+      super();
+      this.printA = this.printA.bind(this);
+    }
+    printA(){
+      console.log(`The value of a is ${this.a}`)
+    }
+    render(){
+      return(
+        <>
+          <h1>App class based component </h1>
+           <button onClick={this.printA}> print a </button>
+        </>
+      )
+    }
+  }
+
+console.log("_______________________________________________________________");
+
+class App extends React.Component{
+    a = "ram";
+    printA(){
+      console.log(`The value of a is ${this.a}`)
+    }
+    render(){
+      return(
+        <>
+          <h1>App class based component </h1>
+           <button onClick={this.printA.bind(this)}> print a </button>
+        </>
+      )
+    }
+  }
 
 
+console.log("_______________________________________________________________");
 
-// const initState = {
-//     allUsers : []
-// }
+class App extends React.Component{
+    obj  = {
+       a : 10,
+    }
+    changeA = () =>{
+      this.obj.a = 20
+      console.log(this.obj)
+      
+    }
+    render(){
+      console.log(this.obj)
+      return(
+        <>
+          <h1>App class based component </h1>
+          <h3> a = {this.obj.a} </h3>
+           <button onClick={this.changeA}>change a </button>
+        </>
+      )
+    }
+  }
 
-// const apiUserReducer = (state = initState, action)=>{ 
-// switch(action.type){
-//     case "STORE_USERS":
-//         return {allUsers : action.payload}
-//     default:
-//         return state;
-// }
+console.log("_______________________________________________________________");
+
+class App extends React.Component{
+    state  = {
+       a : 10,
+    }
+    changeA = () =>{
+      this.setState({ a : 20});
+    }
+    render(){
+      
+      return(
+        <>
+          <h1>App class based component </h1>
+          <h3> a = {this.state.a} </h3>
+           <button onClick={this.changeA}>change a </button>
+        </>
+      )
+    }
+  }
+
+console.log("_______________________________________________________________");
+
+class App extends React.Component{
+    state  = {
+       a : 10,
+    }
+    render(){
+      return(
+        <>
+          <h1>App class based component </h1>
+          <h3> a = {this.state.a} </h3>
+           <button onClick={()=>{
+            this.setState({a : 30})
+           }}>change a </button>
+        </>
+      )
+    }
+  }
+
+console.log("_______________________________________________________________");
+
+import React from 'react'
+import Home from './Home'
+class App extends React.Component{
+  render(){
+    return(
+      <>
+        <h1>App class based component </h1> 
+        <Home /> 
+      </>
+    )
+  }
+}
+
+import React from "react";
+class Home extends React.Component{
+    render(){
+        return(
+            <>
+            <h1>this is home component </h1>
+            </>
+        )
+    }
+}
+export default Home;
+
+console.log("_______________________________________________________________");
+
+import React from 'react'
+import Home from './Home'
+class App extends React.Component{
+  render(){
+    let a = 10;
+    return(
+      <>
+        <h1>App class based component </h1> 
+        <Home  data = {a} /> 
+      </>
+    )
+  }
+}
+
+import React from "react";
+class Home extends React.Component{
+    render(){
+        return(
+            <>
+            <h1>this is home component </h1>
+            <h3>the value of a is {this.props.data} </h3>
+            </>
+        )
+    }
+}
+
+console.log("_______________________________________________________________");
+
+import Home from './Home'
+class App extends React.Component{
+  state = {
+    a : 10
+  }
+  render(){
+    return(
+      <>
+        <h1>App class based component </h1> 
+        <Home  data = {this.state.a} /> 
+      </>
+    )
+  }
+}
+console.log("_______________________________________________________________");
+
+import React from 'react'
+import Home from './Home'
+class App extends React.Component{
+  state = {
+    a : 10
+  }
+  changeState = () =>{
+    this.setState({
+      a : 20
+    })
+  }
+  render(){
+    return(
+      <>
+        <h1>App class based component </h1> 
+        <Home changeState = {this.changeState}  data = {this.state.a} /> 
+      </>
+    )
+  }
+}
+
+import React from "react";
+class Home extends React.Component{
+    render(){
+        return(
+            <>
+            <h1>this is home component </h1>
+            <h3>the value of a is {this.props.data} </h3>
+            <button onClick={this.props.changeState}> home button </button>
+            </>
+        )
+    }
+}
+
+console.log("_______________________________________________________________");
+
+import React from 'react'
+
+class App extends React.Component{
+ state = {
+  a : 0
+ }
+ decrementValue = () =>{
+  this.setState({a : this.state.a - 1})
+ }
+ incrementValue = () =>{
+  this.setState({a : this.state.a + 1});
+ }
+  render(){
+    return(
+      <>
+        <h1>App class based component </h1> 
+        <button onClick={this.incrementValue}> increase </button>
+        <span> {this.state.a}  </span>
+        <button onClick={this.decrementValue}> decrease </button>
+      </>
+    )
+  }
+}
+
+console.log("_______________________________________________________________");
+
+import React from 'react'
+
+class App extends React.Component{
+ state = {
+  a : 10,
+  b : 20
+ }
+
+ changestate = () =>{
+  this.setState({a : this.state.a + 1});
+ }
+ 
+  render(){
+    console.log(this.state)
+    return(
+      <>
+        <h1>App class based component </h1> 
+        <button onClick={this.changestate}>change state</button>
         
-// }
+      </>
+    )
+  }
+}
 
-// import axios from "axios"
-// const fetchUsers = () =>{
-//     return async(dispatch) =>{
-//         try{
-//             const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-//             dispatch({type : 'STORE_USERS', payload : res.data})
-//         }catch(err){
-//             console.log(err);
-//         }
-//     }
-// }
+console.log("_______________________________________________________________");
 
-// console.log("_________________________________________________________________________________");
+import React from 'react'
 
-// import React from 'react'
-// import { useEffect } from 'react';
-// import {useDispatch, useSelector} from 'react-redux';
-// import fetchUsers from './store/aciton/userAction';
-// const User = () => {
-//     // const state = useSelector((state)=> state.users)
-//     const {users} = useSelector((state)=> state.users);
-//     const api = useSelector((state)=> state.api)
-//     console.log("api user ",api)
-//     const dispatch = useDispatch();
+class App extends React.Component{
+ state = {
+  a : 10,
+  b : 20
+ }
 
-//     useEffect(()=>{
-//         dispatch(fetchUsers())
-//     },[]);
+ changestate = () =>{
+  this.setState({a : this.state.a + 1});
+ }
+ 
+  render(){
+    console.log(this.state)
+    return(
+      <>
+        <h1>App class based component </h1>
+        <p> a = {this.state.a} </p> 
+        <button onClick={this.changestate}>change state</button>
+        
+      </>
+    )
+  }
+}
 
-//   return (
-//     <>
-//         <div >
-//             {
-//                 users ? users.map((item,i)=>{
-//                     return <div className="row" key={item.id}>
-//                         <div className='name'> {item.name} </div>
-//                         <div className='address'> {item.address} </div>
-//                         <div className='user-btn'>
-//                         <button className='btn btn-danger' onClick={()=>dispatch({type : "DELETE_USER", id : item.id})}>Delete</button>
-//                         </div>
-//                     </div>
-//                 }) : ""
-//             }
-//         </div>
-//     </>
-//   )
-// }
+console.log("_______________________________________________________________");
 
-// console.log("_________________________________________________________________________________");
+import React from 'react'
+
+class App extends React.Component{
+ state = {
+  a : 10,
+  b : 20
+ }
+
+ changestate = () =>{
+  this.setState((prevState)=>{
+    console.log(prevState)
+  });
+ }
+ 
+  render(){
+    return(
+      <>
+        <h1>App class based component </h1>
+        <p> a = {this.state.a} </p> 
+        <button onClick={this.changestate}>change state</button>
+        
+      </>
+    )
+  }
+}
+
+console.log("_______________________________________________________________");
+
+import React from 'react'
+
+class App extends React.Component{
+ state = {
+  a : 10,
+  b : 20
+ }
+
+ changestate = () =>{
+  this.setState((prevState)=>{
+    return {a : prevState.a + 1}
+  });
+ }
+ 
+  render(){
+    return(
+      <>
+        <h1>App class based component </h1>
+        <p> a = {this.state.a} </p> 
+        <button onClick={this.changestate}>change state</button>
+        
+      </>
+    )
+  }
+}
+
+console.log("_______________________________________________________________");
+
+
+
+console.log("_______________________________________________________________");
