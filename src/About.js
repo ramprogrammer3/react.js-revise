@@ -1,14 +1,20 @@
 import React from "react";
-class About extends React.Component{
-    render(){
-      return(
-        <>
-          <button onClick={this.props.incrementAboutValue }>inclement</button>
-          <span> {this.props.val}  </span>
-          <button onClick={this.props.decrementAboutValue}>decrement</button>
-        </>
-      )
-    }
-  }
 
-export default About
+class About extends React.Component{
+    componentDidMount(){
+        localStorage.setItem("month" , "may");
+    }
+
+    componentWillUnmount(){
+        console.log(" componentWillUnmount is being called ");
+        localStorage.clear("month");
+    }
+    render(){
+        return(
+            <>
+                <h1>About  component </h1>
+            </>
+        )
+    }
+}
+export default About;

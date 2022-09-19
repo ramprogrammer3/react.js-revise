@@ -16,34 +16,14 @@
       "author": "rahul"
     },
     {
-      "name": "php",
-      "author": "ram",
+      "name": "rohan",
+      "email": "rohan7777@gmail.com",
       "id": 4
     },
     {
-      "name": "mysql",
-      "author": "rohan",
-      "id": 5
-    },
-    {
-      "name": "ram kumar",
-      "author": "fsf",
+      "name": "sudhir",
+      "email": "sudhir@gmail.com",
       "id": 6
-    },
-    {
-      "name": "ram kumar",
-      "author": "fsf",
-      "id": 7
-    },
-    {
-      "name": "ram kumar",
-      "author": "fsf",
-      "id": 8
-    },
-    {
-      "name": "sfsf",
-      "author": "rohan",
-      "id": 9
     }
   ],
   "user": []

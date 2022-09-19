@@ -1,207 +1,334 @@
-console.log("__________________________________________________________")
+console.log("_________________________________________________________________________");
 
-import React from 'react'
+import About from './About'
 class App extends React.Component{
-  state = {
-    val : 0
-  }
-  incrementValue = () =>{
-    this.setState((prevState)=>{
-      return{val : prevState.val + 1 }
-    })
-  }
-  decrementValue = () =>{
-    this.setState((prevState)=>{
-      return {val : prevState.val - 1}
-    })
-  }
   render(){
     return(
       <>
-        <button onClick={this.incrementValue}>inclement</button>
-        <span> {this.state.val}  </span>
-        <button onClick={this.decrementValue}>decrement</button>
+        <h1> App component </h1>
+        <About />
       </>
     )
   }
 }
-
-console.log("__________________________________________________________")
-import React from "react";
-
-class Home extends React.Component{
-    state = {
-      val : 0
-    }
-    incrementValue = () =>{
-      this.setState((prevState)=>{
-        return{val : prevState.val + 1 }
-      })
-    }
-    decrementValue = () =>{
-      this.setState((prevState)=>{
-        return {val : prevState.val - 1}
-      })
-    }
-    render(){
-      return(
-        <>
-          <button onClick={this.incrementValue}>inclement</button>
-          <span> {this.state.val}  </span>
-          <button onClick={this.decrementValue}>decrement</button>
-        </>
-      )
-    }
-  }
-
-// export default Home
-console.log("__________________________________________________________")
-import React from "react";
 
 class About extends React.Component{
-    state = {
-      val : 0
-    }
-    incrementValue = () =>{
-      this.setState((prevState)=>{
-        return{val : prevState.val + 1 }
-      })
-    }
-    decrementValue = () =>{
-      this.setState((prevState)=>{
-        return {val : prevState.val - 1}
-      })
+    componentWillUnmount(){
+        console.log(" componentWillUnmount is being called ");
     }
     render(){
-      return(
-        <>
-          <button onClick={this.incrementValue}>inclement</button>
-          <span> {this.state.val}  </span>
-          <button onClick={this.decrementValue}>decrement</button>
-        </>
-      )
+        return(
+            <>
+                <h1>About  component </h1>
+            </>
+        )
     }
-  }
+}
 
-// export default About
-console.log("__________________________________________________________")
+console.log("_________________________________________________________________________");
 
-class App extends React.Component{
-    state = {
-      appData : {val : 0}
-    }
-    incrementValue = () =>{
-      this.setState((prevState)=>{
-        return{appData : {val : prevState.appData.val + 1} }
-      })
-    }
-    decrementValue = () =>{
-      this.setState((prevState)=>{
-        return {appData : {val : prevState.appData.val - 1}}
-      })
-    }
-    render(){
-      return(
-        <>
-          <button onClick={this.incrementValue}>inclement</button>
-          <span> {this.state.appData.val}  </span>
-          <button onClick={this.decrementValue}>decrement</button>
-          
-        </>
-      )
-    }
-  }
-  
-console.log("__________________________________________________________")
-
-import React from 'react'
 import About from './About'
-import Home from './Home'
 class App extends React.Component{
-  state = {
-    appData : {val : 0},
-    homeData : {val : 0},
-    aboutData : {val : 0}
-  }
-  incrementValue = () =>{
-    this.setState((prevState)=>{
-      return{appData : {val : prevState.appData.val + 1} }
-    })
-  }
-  decrementValue = () =>{
-    this.setState((prevState)=>{
-      return {appData : {val : prevState.appData.val - 1}}
-    })
-  }
-
-  decrementHomeDataValue = ()=>{
-    this.setState((prevState)=>{
-      return {homeData : { val : prevState.homeData.val - 1}}
-    })
-  }
-
-  incrementHomeDataValue = () =>{
-    this.setState((prevState)=>{
-      return {homeData : {val : prevState.homeData.val + 1}}
-    })
-  }
-
-  incrementAboutValue = () =>{
-    this.setState((prevState)=>{
-      return {aboutData : {val : prevState.aboutData.val + 1}}
-    })
-  }
-
-  decrementAboutValue = () =>{
-    this.setState((prevState)=>{
-      return {aboutData : {val : prevState.aboutData.val - 1}}
-    })
-  }
-
   render(){
     return(
       <>
-        <button onClick={this.incrementValue}>inclement</button>
-        <span> {this.state.appData.val}  </span>
-        <button onClick={this.decrementValue}>decrement</button>
-        <Home 
-        val = {this.state.homeData.val}
-        decrementHomeDataValue = {this.decrementHomeDataValue}
-        incrementHomeDataValue = {this.incrementHomeDataValue}
-        
-         />
-        <About 
-          val = {this.state.aboutData.val}
-          incrementAboutValue = {this.incrementAboutValue}
-          decrementAboutValue = {this.decrementAboutValue}
-        /> 
+        <h1> App component </h1>
+        <About />
       </>
     )
   }
 }
 
-class Home extends React.Component{
-    render(){
-      return(
-        <>
-          <button onClick={this.props.incrementHomeDataValue} >inclement</button>
-          <span> {this.props.val}  </span>
-          <button onClick={this.props.decrementHomeDataValue} >decrement</button>
-        </>
-      )
+
+class About extends React.Component{
+    componentDidMount(){
+        localStorage.setItem("month" , "may");
     }
+
+    componentWillUnmount(){
+        console.log(" componentWillUnmount is being called ");
+        localStorage.clear("month");
+    }
+    render(){
+        return(
+            <>
+                <h1>About  component </h1>
+            </>
+        )
+    }
+}
+
+console.log("_________________________________________________________________________");
+
+import React from 'react';
+import axios from 'axios';
+class App extends React.Component{
+  componentDidMount(){
+    axios.get("http://localhost:5000/books")
+    .then((res)=>{
+      console.log(res.data);
+    })
+
+  }
+  render(){
+    return(
+      <>
+        <h1> App component </h1>
+      </>
+    )
+  }
+}
+
+
+console.log("_________________________________________________________________________");
+
+import React from 'react';
+import axios from 'axios';
+class App extends React.Component{
+  componentDidMount(){
+    axios.get("http://localhost:5000/books/1")
+    .then((res)=>{
+      console.log(res.data);
+    })
+  }
+  render(){
+    return(
+      <>
+        <h1> App component </h1>
+      </>
+    )
+  }
+}
+
+console.log("_________________________________________________________________________");
+
+import React from 'react';
+import axios from 'axios';
+class App extends React.Component{
+
+  data = {
+    name : "palak",
+    email : "palak7777@gmail.com"
   }
 
-  class About extends React.Component{
-    render(){
-      return(
-        <>
-          <button onClick={this.props.incrementAboutValue }>inclement</button>
-          <span> {this.props.val}  </span>
-          <button onClick={this.props.decrementAboutValue}>decrement</button>
-        </>
-      )
-    }
+  componentDidMount(){
+    axios.post("http://localhost:5000/books/",this.data)
+    .then((res)=>{
+      console.log(res.data);
+    })
+  }
+  render(){
+    return(
+      <>
+        <h1> App component </h1>
+      </>
+    )
+  }
+}
+
+console.log("_________________________________________________________________________");
+
+import React from 'react';
+import axios from 'axios';
+class App extends React.Component{
+
+  data = {
+    name : "rohan",
+    email : "rohan7777@gmail.com"
   }
 
-console.log("__________________________________________________________")
+  componentDidMount(){
+    axios.put("http://localhost:5000/books/4",this.data)
+    .then((res)=>{
+      console.log(res.data);
+    })
+  }
+  render(){
+    return(
+      <>
+        <h1> App component </h1>
+      </>
+    )
+  }
+}
+
+console.log("_________________________________________________________________________");
+
+import React from 'react';
+import axios from 'axios';
+class App extends React.Component{
+  
+  componentDidMount(){
+    axios.delete("http://localhost:5000/books/5")
+    .then((res)=>{
+      console.log(res.data);
+    })
+  }
+  render(){
+    return(
+      <>
+        <h1> App component </h1>
+      </>
+    )
+  }
+}
+
+console.log("_________________________________________________________________________");
+
+import React from 'react';
+class App extends React.Component{
+  componentDidMount(){
+    fetch("http://localhost:5000/books")
+    .then((res)=>{
+      return res.json();
+    }).then((res2)=>{
+      console.log(res2)
+    })
+  }
+  render(){
+    return(
+      <>
+        <h1> App component </h1>
+      </>
+    )
+  }
+}
+
+console.log("_________________________________________________________________________");
+
+import React from 'react';
+class App extends React.Component{
+  user = {
+    name : "sudhir",
+    email : "sudhir@gmail.com"
+  }
+  options = {
+    method :"POST",
+    headers : {
+      'content-type' : "application/json"
+    },
+    body : JSON.stringify(this.user)
+  }
+  componentDidMount(){
+    fetch("http://localhost:5000/books",this.options)
+    .then((res)=>{
+      return res.json();
+    }).then((res2)=>{
+      console.log(res2)
+    }) 
+  }
+  render(){
+    return(
+      <>
+        <h1> App component </h1>
+      </>
+    )
+  }
+}
+
+console.log("_________________________________________________________________________");
+
+import React from 'react';
+class App extends React.Component{
+  user = {
+    name : "madhav",
+    email : "madhav@gmail.com"
+  }
+  options = {
+    method :"PUT",
+    headers : {
+      'content-type' : "application/json"
+    },
+    body : JSON.stringify(this.user)
+  }
+  componentDidMount(){
+    fetch("http://localhost:5000/books/5",this.options)
+    .then((res)=>{
+      return res.json();
+    }).then((res2)=>{
+      console.log(res2)
+    }) 
+  }
+  render(){
+    return(
+      <>
+        <h1> App component </h1>
+      </>
+    )
+  }
+}
+console.log("_________________________________________________________________________");
+
+import React from 'react';
+class App extends React.Component{
+  
+  options = {
+    method :"delete",
+    
+  }
+  componentDidMount(){
+    fetch("http://localhost:5000/books/5",this.options)
+    .then((res)=>{
+      return res.json();
+    }).then((res2)=>{
+      console.log(res2)
+    }) 
+  }
+  render(){
+    return(
+      <>
+        <h1> App component </h1>
+      </>
+    )
+  }
+}
+console.log("_________________________________________________________________________");
+
+
+function App(){
+    return(
+      <>
+        <h2> App component </h2>
+      </>
+    )
+  }
+  
+console.log("_________________________________________________________________________");
+
+import { useState } from "react";
+
+function App(){
+  const [data , setData] = useState({
+    name : "rahul", age : 20
+  })
+  console.log(data);
+  return(
+    <>
+      <h2> App component {data.name} </h2>
+      <button onClick={()=>{
+        setData({name : "ram"})
+      }}>change state</button>
+    </>
+  )
+} 
+
+console.log("_________________________________________________________________________");
+
+import { useState } from "react";
+
+function App(){
+  const [data , setData] = useState({
+    name : "rahul", age : 20
+  })
+  console.log(data);
+  return(
+    <>
+      <h2> App component {data.name} </h2>
+      <button onClick={()=>{
+        setData({...data,name : "ram"})
+      }}>change state</button>
+    </>
+  )
+} 
+
+console.log("_________________________________________________________________________");
