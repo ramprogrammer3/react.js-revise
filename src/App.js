@@ -1,17 +1,23 @@
-import { useState } from "react";
-function App(){
-  const [data , setData] = useState({
-    name : "rahul", age : 20
-  })
-  console.log(data);
+import React, { useEffect } from 'react';
+function Home1(){
+  useEffect(()=>{
+    console.log("useEffect is called in home1 components ");
+    return ()=> {console.log("HOme1 component is being unmounted ")}
+  },[])
   return(
     <>
-      <h2> App component {data.name} </h2>
-      <button onClick={()=>{
-        setData({...data,name : "ram"})
-      }}>change state</button>
+      <h1> Home 1 components </h1>
     </>
   )
-} 
+}
 
-export default App;
+const App = () => {
+  return (
+    <div>
+      <h1>App components</h1>
+      <Home1 />
+    </div>
+  )
+}
+
+export default App

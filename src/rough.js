@@ -1,334 +1,284 @@
-console.log("_________________________________________________________________________");
+console.log("____________________________________________________________________");
 
-import About from './About'
-class App extends React.Component{
-  render(){
-    return(
-      <>
-        <h1> App component </h1>
-        <About />
-      </>
-    )
-  }
+import { BrowserRouter ,Routes, Route  } from "react-router-dom"
+import About from "./About"
+import Details from "./Details"
+import Home from "./Home"
+const App = () => {
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element = {<Home />} />
+          <Route path="/about"  element = {<About />} />
+          <Route path="/detail" element = {<Details />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
 }
 
-class About extends React.Component{
-    componentWillUnmount(){
-        console.log(" componentWillUnmount is being called ");
+console.log("____________________________________________________________________");
+
+
+import { BrowserRouter ,Routes, Route, Link  } from "react-router-dom"
+import About from "./About"
+import Details from "./Details"
+import Home from "./Home"
+const App = () => {
+  return (
+    <div>
+      <BrowserRouter>
+        <Link to= "/">Home</Link>
+        <Link to= "/about">about</Link>
+        <Link to= "/detail">details</Link>
+        <Routes>
+          <Route path="/" element = {<Home />} />
+          <Route path="/about"  element = {<About />} />
+          <Route path="/detail" element = {<Details />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
+}
+
+console.log("____________________________________________________________________");
+
+
+import { BrowserRouter ,Routes, Route } from "react-router-dom"
+import About from "./About"
+import Details from "./Details"
+import Header from "./Header"
+import Home from "./Home"
+const App = () => {
+  return (
+    <div>
+      <BrowserRouter>
+      <Header />
+        <Routes>
+          <Route path="/" element = {<Home />} />
+          <Route path="/about"  element = {<About />} />
+          <Route path="/detail" element = {<Details />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
+}
+
+
+console.log("____________________________________________________________________");
+
+import React from 'react'
+import { Link } from 'react-router-dom';
+import './header.css'
+
+const Header = () => {
+  return (
+    <header className='header'>
+        <Link to= "/">Home</Link>
+        <Link to= "/about">about</Link>
+        <Link to= "/detail">details</Link>
+    </header>
+  )
+}
+
+console.log("____________________________________________________________________");
+
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+const About = () => {
+  return (
+    <div>
+      <h1>Home page </h1>
+      <Link to= "/"> <button>go to home page </button></Link>
+    </div>
+  )
+}
+
+console.log("____________________________________________________________________");
+
+
+import React from 'react'
+import {  useNavigate } from 'react-router-dom'
+
+const About = () => {
+  const navigate = useNavigate()
+  function goToHomePage(){
+    navigate("/")
+  }
+  return (
+    <div>
+      <h1>Home page </h1>
+       <button onClick={goToHomePage}>go to home page </button>
+    </div>
+  )
+}
+
+console.log("____________________________________________________________________");
+
+import { useState } from "react"
+import { BrowserRouter ,Routes, Route } from "react-router-dom"
+import About from "./About"
+import Details from "./Details"
+import Header from "./Header"
+import Home from "./Home"
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  function LoginStatusButton(){
+    if(isLoggedIn === true){
+      return <button onClick={()=>setIsLoggedIn(false)}> Logout </button>
+    }else{
+      return <button onClick={()=> setIsLoggedIn(true)}>Login</button>
     }
-    render(){
-        return(
-            <>
-                <h1>About  component </h1>
-            </>
-        )
+  }
+  return (
+    <div>
+      <BrowserRouter>
+      <Header />
+      <LoginStatusButton />
+        <Routes>
+          <Route path="/" element = {<Home />} />
+          <Route path="/about"  element = {<About />} />
+          <Route path="/detail" element = {<Details />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
+}
+
+console.log("____________________________________________________________________");
+
+import { useState } from "react"
+import { BrowserRouter ,Routes, Route, Navigate } from "react-router-dom"
+import About from "./About"
+import Details from "./Details"
+import Header from "./Header"
+import Home from "./Home"
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  function LoginStatusButton(){
+    if(isLoggedIn === true){
+      return <button onClick={()=>setIsLoggedIn(false)}> Logout </button>
+    }else{
+      return <button onClick={()=> setIsLoggedIn(true)}>Login</button>
     }
-}
-
-console.log("_________________________________________________________________________");
-
-import About from './About'
-class App extends React.Component{
-  render(){
-    return(
-      <>
-        <h1> App component </h1>
-        <About />
-      </>
-    )
   }
+  return (
+    <div>
+      <BrowserRouter>
+      <Header />
+      <LoginStatusButton />
+        <Routes>
+          <Route path="/" element = { <Home />} />
+          <Route path="/about"  element = {isLoggedIn === true ? <About /> : <Navigate to= "/" />} />
+          <Route path="/detail" element = { isLoggedIn === true ?  <Details /> : <Navigate to= "/" />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
 }
 
+console.log("____________________________________________________________________");
 
-class About extends React.Component{
-    componentDidMount(){
-        localStorage.setItem("month" , "may");
+import { useState } from "react"
+import { BrowserRouter ,Routes, Route, Navigate } from "react-router-dom"
+import About from "./About"
+import Details from "./Details"
+import Header from "./Header"
+import Home from "./Home"
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  function LoginStatusButton(){
+    if(isLoggedIn === true){
+      return <button onClick={()=>setIsLoggedIn(false)}> Logout </button>
+    }else{
+      return <button onClick={()=> setIsLoggedIn(true)}>Login</button>
     }
-
-    componentWillUnmount(){
-        console.log(" componentWillUnmount is being called ");
-        localStorage.clear("month");
-    }
-    render(){
-        return(
-            <>
-                <h1>About  component </h1>
-            </>
-        )
-    }
+  }
+  return (
+    <div>
+      <BrowserRouter>
+      <Header />
+      <LoginStatusButton />
+        <Routes>
+          <Route path="/" element = { <Home />} />
+          <Route path="/about"  element = {isLoggedIn === true ? <About /> : <Navigate to= "/" />} />
+          <Route path="/detail" element = { isLoggedIn === true ?  <Details /> : <Navigate to= "/" />} />
+          <Route path="*" element = {<h1> 404 page not found </h1>} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
 }
 
-console.log("_________________________________________________________________________");
+console.log("____________________________________________________________________");
 
-import React from 'react';
-import axios from 'axios';
-class App extends React.Component{
-  componentDidMount(){
-    axios.get("http://localhost:5000/books")
-    .then((res)=>{
-      console.log(res.data);
-    })
+import React, { useEffect, useState } from 'react';
+const App = () => {
+  const [state, setState] = useState(true);
 
-  }
-  render(){
-    return(
-      <>
-        <h1> App component </h1>
-      </>
-    )
-  }
-}
-
-
-console.log("_________________________________________________________________________");
-
-import React from 'react';
-import axios from 'axios';
-class App extends React.Component{
-  componentDidMount(){
-    axios.get("http://localhost:5000/books/1")
-    .then((res)=>{
-      console.log(res.data);
-    })
-  }
-  render(){
-    return(
-      <>
-        <h1> App component </h1>
-      </>
-    )
-  }
-}
-
-console.log("_________________________________________________________________________");
-
-import React from 'react';
-import axios from 'axios';
-class App extends React.Component{
-
-  data = {
-    name : "palak",
-    email : "palak7777@gmail.com"
-  }
-
-  componentDidMount(){
-    axios.post("http://localhost:5000/books/",this.data)
-    .then((res)=>{
-      console.log(res.data);
-    })
-  }
-  render(){
-    return(
-      <>
-        <h1> App component </h1>
-      </>
-    )
-  }
-}
-
-console.log("_________________________________________________________________________");
-
-import React from 'react';
-import axios from 'axios';
-class App extends React.Component{
-
-  data = {
-    name : "rohan",
-    email : "rohan7777@gmail.com"
-  }
-
-  componentDidMount(){
-    axios.put("http://localhost:5000/books/4",this.data)
-    .then((res)=>{
-      console.log(res.data);
-    })
-  }
-  render(){
-    return(
-      <>
-        <h1> App component </h1>
-      </>
-    )
-  }
-}
-
-console.log("_________________________________________________________________________");
-
-import React from 'react';
-import axios from 'axios';
-class App extends React.Component{
-  
-  componentDidMount(){
-    axios.delete("http://localhost:5000/books/5")
-    .then((res)=>{
-      console.log(res.data);
-    })
-  }
-  render(){
-    return(
-      <>
-        <h1> App component </h1>
-      </>
-    )
-  }
-}
-
-console.log("_________________________________________________________________________");
-
-import React from 'react';
-class App extends React.Component{
-  componentDidMount(){
-    fetch("http://localhost:5000/books")
-    .then((res)=>{
-      return res.json();
-    }).then((res2)=>{
-      console.log(res2)
-    })
-  }
-  render(){
-    return(
-      <>
-        <h1> App component </h1>
-      </>
-    )
-  }
-}
-
-console.log("_________________________________________________________________________");
-
-import React from 'react';
-class App extends React.Component{
-  user = {
-    name : "sudhir",
-    email : "sudhir@gmail.com"
-  }
-  options = {
-    method :"POST",
-    headers : {
-      'content-type' : "application/json"
-    },
-    body : JSON.stringify(this.user)
-  }
-  componentDidMount(){
-    fetch("http://localhost:5000/books",this.options)
-    .then((res)=>{
-      return res.json();
-    }).then((res2)=>{
-      console.log(res2)
-    }) 
-  }
-  render(){
-    return(
-      <>
-        <h1> App component </h1>
-      </>
-    )
-  }
-}
-
-console.log("_________________________________________________________________________");
-
-import React from 'react';
-class App extends React.Component{
-  user = {
-    name : "madhav",
-    email : "madhav@gmail.com"
-  }
-  options = {
-    method :"PUT",
-    headers : {
-      'content-type' : "application/json"
-    },
-    body : JSON.stringify(this.user)
-  }
-  componentDidMount(){
-    fetch("http://localhost:5000/books/5",this.options)
-    .then((res)=>{
-      return res.json();
-    }).then((res2)=>{
-      console.log(res2)
-    }) 
-  }
-  render(){
-    return(
-      <>
-        <h1> App component </h1>
-      </>
-    )
-  }
-}
-console.log("_________________________________________________________________________");
-
-import React from 'react';
-class App extends React.Component{
-  
-  options = {
-    method :"delete",
-    
-  }
-  componentDidMount(){
-    fetch("http://localhost:5000/books/5",this.options)
-    .then((res)=>{
-      return res.json();
-    }).then((res2)=>{
-      console.log(res2)
-    }) 
-  }
-  render(){
-    return(
-      <>
-        <h1> App component </h1>
-      </>
-    )
-  }
-}
-console.log("_________________________________________________________________________");
-
-
-function App(){
-    return(
-      <>
-        <h2> App component </h2>
-      </>
-    )
-  }
-  
-console.log("_________________________________________________________________________");
-
-import { useState } from "react";
-
-function App(){
-  const [data , setData] = useState({
-    name : "rahul", age : 20
+  useEffect(()=>{
+    console.log("useEffect is called ");
   })
-  console.log(data);
+
+  const changeState = () =>{
+    setState(!state)
+  }
+  return (
+    <div>
+      <h1>App components state = {state.toString()} </h1>
+      <button onClick={changeState}>change state </button>
+    </div>
+  )
+}
+
+console.log("____________________________________________________________________");
+
+import React, { useEffect, useState } from 'react';
+const App = () => {
+  const [state, setState] = useState(true);
+
+  useEffect(()=>{
+    console.log("useEffect is called ");
+  },[])
+
+  const changeState = () =>{
+    setState(!state)
+  }
+  return (
+    <div>
+      <h1>App components state = {state.toString()} </h1>
+      <button onClick={changeState}>change state </button>
+    </div>
+  )
+}
+console.log("____________________________________________________________________");
+
+import React, { useEffect } from 'react';
+function Home1(){
+  useEffect(()=>{
+    console.log("useEffect is called in home1 components ");
+    return ()=> {console.log("HOme1 component is being unmounted ")}
+  },[])
   return(
     <>
-      <h2> App component {data.name} </h2>
-      <button onClick={()=>{
-        setData({name : "ram"})
-      }}>change state</button>
+      <h1> Home 1 components </h1>
     </>
   )
-} 
+}
 
-console.log("_________________________________________________________________________");
-
-import { useState } from "react";
-
-function App(){
-  const [data , setData] = useState({
-    name : "rahul", age : 20
-  })
-  console.log(data);
-  return(
-    <>
-      <h2> App component {data.name} </h2>
-      <button onClick={()=>{
-        setData({...data,name : "ram"})
-      }}>change state</button>
-    </>
+const App = () => {
+  return (
+    <div>
+      <h1>App components</h1>
+      <Home1 />
+    </div>
   )
-} 
+}
 
-console.log("_________________________________________________________________________");
+console.log("____________________________________________________________________");
+
+
+
+console.log("____________________________________________________________________");

@@ -1,20 +1,16 @@
-import React from "react";
-
-class About extends React.Component{
-    componentDidMount(){
-        localStorage.setItem("month" , "may");
-    }
-
-    componentWillUnmount(){
-        console.log(" componentWillUnmount is being called ");
-        localStorage.clear("month");
-    }
-    render(){
-        return(
-            <>
-                <h1>About  component </h1>
-            </>
-        )
-    }
+import React from 'react'
+import {  useNavigate } from 'react-router-dom'
+const About = () => {
+  const navigate = useNavigate()
+  function goToHomePage(){
+    navigate("/")
+  }
+  return (
+    <div>
+      <h1>Home page </h1>
+       <button onClick={goToHomePage}>go to home page </button>
+    </div>
+  )
 }
-export default About;
+
+export default About
